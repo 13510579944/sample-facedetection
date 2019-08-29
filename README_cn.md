@@ -43,12 +43,9 @@
 1.  以MindSpore Studio安装用户进入facedetectionapp应用代码所在根目录，如/home/ascend/sample-facedetection。
 2.  <a name="zh-cn_topic_0167071573_li08019112542"></a>执行部署脚本，进行工程环境准备，包括ascenddk公共库的编译与部署、网络模型的下载、Presenter Server服务器的配置等操作，其中Presenter Server用于接收Application发送过来的数据并通过浏览器进行结果展示。
 
-    **bash deploy.sh** _host\_ip_ _model\_mode_
+    **bash deploy.sh** _host\_ip_ internet 
 
     -   _host\_ip_：Atlas 200 DK开发者板的IP地址。
-    -   model\_mode代表模型文件及依赖软件的部署方式，默认为internet。
-        -   local：若MindSpore Studio所在Ubuntu系统未连接网络，请使用local模式，执行此命令前，需要参考[网络模型及公共代码库下载](#zh-cn_topic_0167071573_section4995103618210)将网络模型文件以及依赖的公共代码库下载到“sample-facedetection/script“目录下。
-        -   internet：若MindSpore Studio所在Ubuntu系统已连接网络，请使用internet模式，在线下载模型文件及依赖代码库。
 
 
     命令示例：
@@ -154,89 +151,4 @@
     若想停止此服务，执行如下命令：
 
     **kill -9** _7701_
-
-
-## 网络模型及公共代码库下载<a name="zh-cn_topic_0167071573_section4995103618210"></a>
-
--   网络模型文件下载
-
-    Face Detection sample中使用的模型是经过转化后的适配Ascend 310芯片的模型。可参考[表1](#zh-cn_topic_0167071573_table0531392153)进行模型文件的下载。如果您有更好的模型，欢迎上传到[https://github.com/Ascend/models](https://github.com/Ascend/models)进行分享。
-
-    将模型文件（.om文件）下载到“sample-facedetection/script“目录下。
-
-    **表 1**  Face Detection中使用模型
-
-    <a name="zh-cn_topic_0167071573_table0531392153"></a>
-    <table><thead align="left"><tr id="zh-cn_topic_0167071573_row1154103991514"><th class="cellrowborder" valign="top" width="19.55%" id="mcps1.2.5.1.1"><p id="zh-cn_topic_0167071573_p195418397155"><a name="zh-cn_topic_0167071573_p195418397155"></a><a name="zh-cn_topic_0167071573_p195418397155"></a>模型名称</p>
-    </th>
-    <th class="cellrowborder" valign="top" width="30%" id="mcps1.2.5.1.2"><p id="zh-cn_topic_0167071573_p1054539151519"><a name="zh-cn_topic_0167071573_p1054539151519"></a><a name="zh-cn_topic_0167071573_p1054539151519"></a>模型说明</p>
-    </th>
-    <th class="cellrowborder" valign="top" width="31.96%" id="mcps1.2.5.1.3"><p id="zh-cn_topic_0167071573_p387083117108"><a name="zh-cn_topic_0167071573_p387083117108"></a><a name="zh-cn_topic_0167071573_p387083117108"></a>模型下载路径</p>
-    </th>
-    <th class="cellrowborder" valign="top" width="18.490000000000002%" id="mcps1.2.5.1.4"><p id="zh-cn_topic_0167071573_p35412397154"><a name="zh-cn_topic_0167071573_p35412397154"></a><a name="zh-cn_topic_0167071573_p35412397154"></a>原始网络下载地址</p>
-    </th>
-    </tr>
-    </thead>
-    <tbody><tr id="zh-cn_topic_0167071573_row65414393159"><td class="cellrowborder" valign="top" width="19.55%" headers="mcps1.2.5.1.1 "><p id="zh-cn_topic_0167071573_p17544398153"><a name="zh-cn_topic_0167071573_p17544398153"></a><a name="zh-cn_topic_0167071573_p17544398153"></a>人脸检测网络模型</p>
-    <p id="zh-cn_topic_0167071573_p84114461512"><a name="zh-cn_topic_0167071573_p84114461512"></a><a name="zh-cn_topic_0167071573_p84114461512"></a>（face_detection.om）</p>
-    </td>
-    <td class="cellrowborder" valign="top" width="30%" headers="mcps1.2.5.1.2 "><p id="zh-cn_topic_0167071573_p169011731015"><a name="zh-cn_topic_0167071573_p169011731015"></a><a name="zh-cn_topic_0167071573_p169011731015"></a>此模型是基于Caffe的Resnet10-SSD300模型转换后的网络模型。</p>
-    <p id="zh-cn_topic_0167071573_p13241175715516"><a name="zh-cn_topic_0167071573_p13241175715516"></a><a name="zh-cn_topic_0167071573_p13241175715516"></a></p>
-    </td>
-    <td class="cellrowborder" valign="top" width="31.96%" headers="mcps1.2.5.1.3 "><p id="zh-cn_topic_0167071573_p1569513572242"><a name="zh-cn_topic_0167071573_p1569513572242"></a><a name="zh-cn_topic_0167071573_p1569513572242"></a>请从<a href="https://github.com/Ascend/models/" target="_blank" rel="noopener noreferrer">https://github.com/Ascend/models/</a>仓的computer_vision/object_detect/face_detection目录中下载。</p>
-    <p id="zh-cn_topic_0167071573_p1787118315101"><a name="zh-cn_topic_0167071573_p1787118315101"></a><a name="zh-cn_topic_0167071573_p1787118315101"></a>对应版本说明请参考当前目录下的README.md文件。</p>
-    </td>
-    <td class="cellrowborder" valign="top" width="18.490000000000002%" headers="mcps1.2.5.1.4 "><p id="zh-cn_topic_0167071573_p1785381617217"><a name="zh-cn_topic_0167071573_p1785381617217"></a><a name="zh-cn_topic_0167071573_p1785381617217"></a>请参考<a href="https://github.com/Ascend/models/" target="_blank" rel="noopener noreferrer">https://github.com/Ascend/models/</a>仓的computer_vision/object_detect/face_detection目录下的README.md文件获取。</p>
-    <p id="zh-cn_topic_0167071573_p1314312124919"><a name="zh-cn_topic_0167071573_p1314312124919"></a><a name="zh-cn_topic_0167071573_p1314312124919"></a><strong id="zh-cn_topic_0167071573_b1141243104917"><a name="zh-cn_topic_0167071573_b1141243104917"></a><a name="zh-cn_topic_0167071573_b1141243104917"></a>模型转换时注意事项：</strong></p>
-    <p id="zh-cn_topic_0167071573_p53116302463"><a name="zh-cn_topic_0167071573_p53116302463"></a><a name="zh-cn_topic_0167071573_p53116302463"></a>转化时会提示转化失败，只需要在最后一层的下拉框中选择SSDDetectionOutput然后点击Retry重新转换即可。</p>
-    <p id="zh-cn_topic_0167071573_p2070918516450"><a name="zh-cn_topic_0167071573_p2070918516450"></a><a name="zh-cn_topic_0167071573_p2070918516450"></a><a name="zh-cn_topic_0167071573_image1725195313454"></a><a name="zh-cn_topic_0167071573_image1725195313454"></a><span><img id="zh-cn_topic_0167071573_image1725195313454" src="doc/source/img/zh-cn_image_0167696699.png"></span></p>
-    </td>
-    </tr>
-    </tbody>
-    </table>
-
-
--   公共代码库下载
-
-    将依赖的软件库下载到“sample-facedetection/script“目录下。
-
-    **表 2**  依赖代码库下载
-
-    <a name="zh-cn_topic_0167071573_table1935612447166"></a>
-    <table><thead align="left"><tr id="zh-cn_topic_0167071573_row1635554471616"><th class="cellrowborder" valign="top" width="33.33333333333333%" id="mcps1.2.4.1.1"><p id="zh-cn_topic_0167071573_p6355194441618"><a name="zh-cn_topic_0167071573_p6355194441618"></a><a name="zh-cn_topic_0167071573_p6355194441618"></a>模块名称</p>
-    </th>
-    <th class="cellrowborder" valign="top" width="33.33333333333333%" id="mcps1.2.4.1.2"><p id="zh-cn_topic_0167071573_p2355744151615"><a name="zh-cn_topic_0167071573_p2355744151615"></a><a name="zh-cn_topic_0167071573_p2355744151615"></a>模块描述</p>
-    </th>
-    <th class="cellrowborder" valign="top" width="33.33333333333333%" id="mcps1.2.4.1.3"><p id="zh-cn_topic_0167071573_p5355124415162"><a name="zh-cn_topic_0167071573_p5355124415162"></a><a name="zh-cn_topic_0167071573_p5355124415162"></a>下载地址</p>
-    </th>
-    </tr>
-    </thead>
-    <tbody><tr id="zh-cn_topic_0167071573_row535664410169"><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.2.4.1.1 "><p id="zh-cn_topic_0167071573_p5355144141615"><a name="zh-cn_topic_0167071573_p5355144141615"></a><a name="zh-cn_topic_0167071573_p5355144141615"></a>EZDVPP</p>
-    </td>
-    <td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.2.4.1.2 "><p id="zh-cn_topic_0167071573_p2035512440166"><a name="zh-cn_topic_0167071573_p2035512440166"></a><a name="zh-cn_topic_0167071573_p2035512440166"></a>对DVPP接口进行了封装，提供对图片/视频的处理能力。</p>
-    </td>
-    <td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.2.4.1.3 "><p id="zh-cn_topic_0167071573_p135519445169"><a name="zh-cn_topic_0167071573_p135519445169"></a><a name="zh-cn_topic_0167071573_p135519445169"></a><a href="https://github.com/Ascend/sdk-ezdvpp" target="_blank" rel="noopener noreferrer">https://github.com/Ascend/sdk-ezdvpp</a></p>
-    <p id="zh-cn_topic_0167071573_p1135584401618"><a name="zh-cn_topic_0167071573_p1135584401618"></a><a name="zh-cn_topic_0167071573_p1135584401618"></a>下载后请保持文件夹名称为ezdvpp。</p>
-    </td>
-    </tr>
-    <tr id="zh-cn_topic_0167071573_row14356144401615"><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.2.4.1.1 "><p id="zh-cn_topic_0167071573_p135610445162"><a name="zh-cn_topic_0167071573_p135610445162"></a><a name="zh-cn_topic_0167071573_p135610445162"></a>Presenter Agent</p>
-    </td>
-    <td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.2.4.1.2 "><p id="zh-cn_topic_0167071573_p133561244131620"><a name="zh-cn_topic_0167071573_p133561244131620"></a><a name="zh-cn_topic_0167071573_p133561244131620"></a>与Presenter Server进行交互的API接口。</p>
-    </td>
-    <td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.2.4.1.3 "><p id="zh-cn_topic_0167071573_p19356844151612"><a name="zh-cn_topic_0167071573_p19356844151612"></a><a name="zh-cn_topic_0167071573_p19356844151612"></a><a href="https://github.com/Ascend/sdk-presenter/tree/master/presenteragent" target="_blank" rel="noopener noreferrer">https://github.com/Ascend/sdk-presenter/tree/master/</a></p>
-    <p id="zh-cn_topic_0167071573_p83561244101613"><a name="zh-cn_topic_0167071573_p83561244101613"></a><a name="zh-cn_topic_0167071573_p83561244101613"></a>请获取此路径下的presenteragent文件夹，下载后请保持文件夹名称为presenteragent。</p>
-    </td>
-    </tr>
-    <tr id="zh-cn_topic_0167071573_row16356944181617"><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.2.4.1.1 "><p id="zh-cn_topic_0167071573_p1935684461616"><a name="zh-cn_topic_0167071573_p1935684461616"></a><a name="zh-cn_topic_0167071573_p1935684461616"></a>tornado (5.1.0)</p>
-    <p id="zh-cn_topic_0167071573_p13356444141613"><a name="zh-cn_topic_0167071573_p13356444141613"></a><a name="zh-cn_topic_0167071573_p13356444141613"></a>protobuf (3.5.1)</p>
-    <p id="zh-cn_topic_0167071573_p103566440169"><a name="zh-cn_topic_0167071573_p103566440169"></a><a name="zh-cn_topic_0167071573_p103566440169"></a>numpy (1.14.2)</p>
-    </td>
-    <td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.2.4.1.2 "><p id="zh-cn_topic_0167071573_p3356144401619"><a name="zh-cn_topic_0167071573_p3356144401619"></a><a name="zh-cn_topic_0167071573_p3356144401619"></a>Presenter Server依赖的Python库</p>
-    </td>
-    <td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.2.4.1.3 "><p id="zh-cn_topic_0167071573_p5356114415163"><a name="zh-cn_topic_0167071573_p5356114415163"></a><a name="zh-cn_topic_0167071573_p5356114415163"></a>可以在python官网 https://pypi.org/ 上搜索相关包进行安装。若使用pip3 install命令在线下载，可以使用如下命令指定相关版本进行下载，例如：</p><p>pip3 install tornado==5.1.0  -i  指定库的安装源  --trusted-host  安装源的主机名</p>
-    </td>
-    </tr>
-    </tbody>
-    </table>
-
 
