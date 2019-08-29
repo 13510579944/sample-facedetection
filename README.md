@@ -43,7 +43,7 @@ Before running the application, obtain the source code package and configure the
 1.  Access the root directory where the face detection application code is located as the MindSpore Studio installation user, for example,  _**/home/ascend/sample-facedetection**_.
 2.  Run the deployment script to prepare the project environment, including compiling and deploying the ascenddk public library, downloading the network model, and configuring Presenter Server. The Presenter Server is used to receive the data sent by the application and display the result through the browser.
 
-    **bash deploy.sh** _host\_ip_ internet
+    **bash deploy.sh** _host\_ip_ **internet**
 
     -   _host\_ip_: For the Atlas 200 DK developer board, this parameter indicates the IP address of the developer board.
 
