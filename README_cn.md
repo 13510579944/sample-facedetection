@@ -43,7 +43,7 @@
 1.  以MindSpore Studio安装用户进入facedetectionapp应用代码所在根目录，如/home/ascend/sample-facedetection。
 2.  <a name="zh-cn_topic_0167071573_li08019112542"></a>执行部署脚本，进行工程环境准备，包括ascenddk公共库的编译与部署、网络模型的下载、Presenter Server服务器的配置等操作，其中Presenter Server用于接收Application发送过来的数据并通过浏览器进行结果展示。
 
-    **bash deploy.sh** _host\_ip_ internet 
+    **bash deploy.sh** _host\_ip_ **internet** 
 
     -   _host\_ip_：Atlas 200 DK开发者板的IP地址。
 
