@@ -43,12 +43,9 @@ Before running the application, obtain the source code package and configure the
 1.  Access the root directory where the face detection application code is located as the MindSpore Studio installation user, for example,  _**/home/ascend/sample-facedetection**_.
 2.  Run the deployment script to prepare the project environment, including compiling and deploying the ascenddk public library, downloading the network model, and configuring Presenter Server. The Presenter Server is used to receive the data sent by the application and display the result through the browser.
 
-    **bash deploy.sh** _host\_ip_ _model\_mode_
+    **bash deploy.sh** _host\_ip_ internet
 
     -   _host\_ip_: For the Atlas 200 DK developer board, this parameter indicates the IP address of the developer board.
-    -   _model\_mode_  indicates the deployment mode of the model file. The default setting is  **internet**.
-        -   **local**: If the Ubuntu system where MindSpore Studio is located is not connected to the network, use the local mode. In this case, download the network model file and the dependent common code library to the  **sample-facedetection/script**  directory by referring to the  [Downloading Network Model and Dependency Code Library](#en-us_topic_0167089636_section193081336153717).
-        -   **internet**: Indicates the online deployment mode. If the Ubuntu system where MindSpore Studio is located is connected to the network, use the Internet mode. In this case, download the model file and  dependency code library online.
 
 
     Example command:
@@ -154,86 +151,4 @@ Before running the application, obtain the source code package and configure the
     To stop the service, run the following command:
 
     **kill -9** _7701_
-
-
-## Downloading Network Model and Dependency Code Library<a name="en-us_topic_0167089636_section193081336153717"></a>
-
--   Downloading network model
-
-    The models used in the application are converted models that adapt to the Ascend 310 chipset. For details about how to download this kind of models and the original network models of face detection application, see  [Table 1](#en-us_topic_0167089636_table0531392153). If you have a better model solution, you are welcome to share it at  [https://github.com/Ascend/models](https://github.com/Ascend/models).
-
-    Download the network models files (.om files) to the **sample-facedetection/script** directory.
-
-    **Table  1**  Models used in face detection applications
-
-    <a name="en-us_topic_0167089636_table0531392153"></a>
-    <table><thead align="left"><tr id="en-us_topic_0167089636_row1154103991514"><th class="cellrowborder" valign="top" width="15.841584158415841%" id="mcps1.2.5.1.1"><p id="en-us_topic_0167089636_p195418397155"><a name="en-us_topic_0167089636_p195418397155"></a><a name="en-us_topic_0167089636_p195418397155"></a>Model Name</p>
-    </th>
-    <th class="cellrowborder" valign="top" width="21.782178217821784%" id="mcps1.2.5.1.2"><p id="en-us_topic_0167089636_p1054539151519"><a name="en-us_topic_0167089636_p1054539151519"></a><a name="en-us_topic_0167089636_p1054539151519"></a>Description</p>
-    </th>
-    <th class="cellrowborder" valign="top" width="28.71287128712871%" id="mcps1.2.5.1.3"><p id="en-us_topic_0167089636_p387083117108"><a name="en-us_topic_0167089636_p387083117108"></a><a name="en-us_topic_0167089636_p387083117108"></a>Model Download Path</p>
-    </th>
-    <th class="cellrowborder" valign="top" width="33.663366336633665%" id="mcps1.2.5.1.4"><p id="en-us_topic_0167089636_p35412397154"><a name="en-us_topic_0167089636_p35412397154"></a><a name="en-us_topic_0167089636_p35412397154"></a>Original Network Download Address</p>
-    </th>
-    </tr>
-    </thead>
-    <tbody><tr id="en-us_topic_0167089636_row65414393159"><td class="cellrowborder" valign="top" width="15.841584158415841%" headers="mcps1.2.5.1.1 "><p id="en-us_topic_0167089636_p17544398153"><a name="en-us_topic_0167089636_p17544398153"></a><a name="en-us_topic_0167089636_p17544398153"></a>Network model for face detection</p>
-    <p id="en-us_topic_0167089636_p84114461512"><a name="en-us_topic_0167089636_p84114461512"></a><a name="en-us_topic_0167089636_p84114461512"></a>(<strong id="en-us_topic_0167089636_b41111030191911"><a name="en-us_topic_0167089636_b41111030191911"></a><a name="en-us_topic_0167089636_b41111030191911"></a>face_detection.om</strong>)</p>
-    </td>
-    <td class="cellrowborder" valign="top" width="21.782178217821784%" headers="mcps1.2.5.1.2 "><p id="en-us_topic_0167089636_p1372429181516"><a name="en-us_topic_0167089636_p1372429181516"></a><a name="en-us_topic_0167089636_p1372429181516"></a>It is a network model converted from ResNet10-SSD300 model based on Caffe.</p>
-    </td>
-    <td class="cellrowborder" valign="top" width="28.71287128712871%" headers="mcps1.2.5.1.3 "><p id="en-us_topic_0167089636_p1569513572242"><a name="en-us_topic_0167089636_p1569513572242"></a><a name="en-us_topic_0167089636_p1569513572242"></a>Download the model from the <strong id="en-us_topic_0167089636_b028612482311"><a name="en-us_topic_0167089636_b028612482311"></a><a name="en-us_topic_0167089636_b028612482311"></a>computer_vision/object_detect/face_detection</strong> directory in the <a href="https://github.com/Ascend/models/" target="_blank" rel="noopener noreferrer">https://github.com/Ascend/models/</a> repository.</p>
-    <p id="en-us_topic_0167089636_p1787118315101"><a name="en-us_topic_0167089636_p1787118315101"></a><a name="en-us_topic_0167089636_p1787118315101"></a>For the version description, see the <strong id="en-us_topic_0167089636_b1012219832511"><a name="en-us_topic_0167089636_b1012219832511"></a><a name="en-us_topic_0167089636_b1012219832511"></a>README.md</strong> file in the current directory.</p>
-    </td>
-    <td class="cellrowborder" valign="top" width="33.663366336633665%" headers="mcps1.2.5.1.4 "><p id="en-us_topic_0167089636_p1785381617217"><a name="en-us_topic_0167089636_p1785381617217"></a><a name="en-us_topic_0167089636_p1785381617217"></a>For details, see the <strong id="en-us_topic_0167089636_b1423252411265"><a name="en-us_topic_0167089636_b1423252411265"></a><a name="en-us_topic_0167089636_b1423252411265"></a>README.md</strong> file of the <strong id="en-us_topic_0167089636_b688544332614"><a name="en-us_topic_0167089636_b688544332614"></a><a name="en-us_topic_0167089636_b688544332614"></a>computer_vision/object_detect/face_detection</strong> directory in the <a href="https://github.com/Ascend/models/" target="_blank" rel="noopener noreferrer">https://github.com/Ascend/models/</a> repository.</p>
-    <p id="en-us_topic_0167089636_p1314312124919"><a name="en-us_topic_0167089636_p1314312124919"></a><a name="en-us_topic_0167089636_p1314312124919"></a><strong id="en-us_topic_0167089636_b1365251225519"><a name="en-us_topic_0167089636_b1365251225519"></a><a name="en-us_topic_0167089636_b1365251225519"></a>Precautions during model conversion:</strong></p>
-    <p id="en-us_topic_0167089636_p53116302463"><a name="en-us_topic_0167089636_p53116302463"></a><a name="en-us_topic_0167089636_p53116302463"></a>During the conversion, a message is displayed indicating that the conversion fails. You only need to select <strong id="en-us_topic_0167089636_b55978299556"><a name="en-us_topic_0167089636_b55978299556"></a><a name="en-us_topic_0167089636_b55978299556"></a>SSDDetectionOutput </strong>from the drop-down list box for the last layer and click <strong id="en-us_topic_0167089636_b15597182918551"><a name="en-us_topic_0167089636_b15597182918551"></a><a name="en-us_topic_0167089636_b15597182918551"></a>Retry</strong>.</p>
-    <p id="en-us_topic_0167089636_p109405475158"><a name="en-us_topic_0167089636_p109405475158"></a><a name="en-us_topic_0167089636_p109405475158"></a><a name="en-us_topic_0167089636_image13957135893610"></a><a name="en-us_topic_0167089636_image13957135893610"></a><span><img id="en-us_topic_0167089636_image13957135893610" src="doc/source/img/en-us_image_0167757543.png"></span></p>
-    <p id="en-us_topic_0167089636_p179225194910"><a name="en-us_topic_0167089636_p179225194910"></a><a name="en-us_topic_0167089636_p179225194910"></a></p>
-    </td>
-    </tr>
-    </tbody>
-    </table>
-
--   Download the dependent software libraries
-    
-    Download the dependent software libraries to the **sample-facedetection/script** directory.
-
-    **Table  2**  Download the dependent software library
-
-    <a name="en-us_topic_0167089636_table141761431143110"></a>
-    <table><thead align="left"><tr id="en-us_topic_0167089636_row18177103183119"><th class="cellrowborder" valign="top" width="33.33333333333333%" id="mcps1.2.4.1.1"><p id="en-us_topic_0167089636_p8177331103112"><a name="en-us_topic_0167089636_p8177331103112"></a><a name="en-us_topic_0167089636_p8177331103112"></a>Module Name</p>
-    </th>
-    <th class="cellrowborder" valign="top" width="33.33333333333333%" id="mcps1.2.4.1.2"><p id="en-us_topic_0167089636_p1317753119313"><a name="en-us_topic_0167089636_p1317753119313"></a><a name="en-us_topic_0167089636_p1317753119313"></a>Module Description</p>
-    </th>
-    <th class="cellrowborder" valign="top" width="33.33333333333333%" id="mcps1.2.4.1.3"><p id="en-us_topic_0167089636_p1417713111311"><a name="en-us_topic_0167089636_p1417713111311"></a><a name="en-us_topic_0167089636_p1417713111311"></a>Download Address</p>
-    </th>
-    </tr>
-    </thead>
-    <tbody><tr id="en-us_topic_0167089636_row19177133163116"><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.2.4.1.1 "><p id="en-us_topic_0167089636_p2017743119318"><a name="en-us_topic_0167089636_p2017743119318"></a><a name="en-us_topic_0167089636_p2017743119318"></a>EZDVPP</p>
-    </td>
-    <td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.2.4.1.2 "><p id="en-us_topic_0167089636_p52110611584"><a name="en-us_topic_0167089636_p52110611584"></a><a name="en-us_topic_0167089636_p52110611584"></a>Encapsulates the dvpp interface and provides image and video processing capabilities, such as color gamut conversion and image / video conversion</p>
-    </td>
-    <td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.2.4.1.3 "><p id="en-us_topic_0167089636_p31774315318"><a name="en-us_topic_0167089636_p31774315318"></a><a name="en-us_topic_0167089636_p31774315318"></a><a href="https://github.com/Ascend/sdk-ezdvpp" target="_blank" rel="noopener noreferrer">https://github.com/Ascend/sdk-ezdvpp</a></p>
-    <p id="en-us_topic_0167089636_p1634523015710"><a name="en-us_topic_0167089636_p1634523015710"></a><a name="en-us_topic_0167089636_p1634523015710"></a>After the download, keep the folder name <span class="filepath" id="en-us_topic_0167089636_filepath1324864613582"><a name="en-us_topic_0167089636_filepath1324864613582"></a><a name="en-us_topic_0167089636_filepath1324864613582"></a><b>ezdvpp</b></span>。</p>
-    </td>
-    </tr>
-    <tr id="en-us_topic_0167089636_row101773315313"><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.2.4.1.1 "><p id="en-us_topic_0167089636_p217773153110"><a name="en-us_topic_0167089636_p217773153110"></a><a name="en-us_topic_0167089636_p217773153110"></a>Presenter Agent</p>
-    </td>
-    <td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.2.4.1.2 "><p id="en-us_topic_0167089636_p19431399359"><a name="en-us_topic_0167089636_p19431399359"></a><a name="en-us_topic_0167089636_p19431399359"></a><span>API for interacting with the Presenter Server</span>.</p>
-    </td>
-    <td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.2.4.1.3 "><p id="en-us_topic_0167089636_p16684144715560"><a name="en-us_topic_0167089636_p16684144715560"></a><a name="en-us_topic_0167089636_p16684144715560"></a><a href="https://github.com/Ascend/sdk-presenter/tree/master" target="_blank" rel="noopener noreferrer">https://github.com/Ascend/sdk-presenter/tree/master</a></p>
-    <p id="en-us_topic_0167089636_p82315442578"><a name="en-us_topic_0167089636_p82315442578"></a><a name="en-us_topic_0167089636_p82315442578"></a>Obtain the presenteragent folder in this path, after the download, keep the folder name <span class="filepath" id="en-us_topic_0167089636_filepath19800155745817"><a name="en-us_topic_0167089636_filepath19800155745817"></a><a name="en-us_topic_0167089636_filepath19800155745817"></a><b>presenteragent</b></span>.</p>
-    </td>
-    </tr>
-    <tr id="en-us_topic_0167333650_row101773315313"><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.2.4.1.1 "><p>tornado (5.1.0)</p><p>protobuf (3.5.1)</p><p>numpy (1.14.2)</P>
-</td>
-<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.2.4.1.2 "><p id="en-us_topic_0167333650_p19431399359"><a name="en-us_topic_0167333650_p19431399359"></a><a name="en-us_topic_0167333650_p19431399359"></a><span>Python libraries that Presenter Server depends on.</span>.</p>
-</td>
-<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.2.4.1.3 "><p id="en-us_topic_0167333650_p16684144715560">You can search for related packages on the Python official website https://pypi.org/ for installation. If you run the pip3 install command to download the file online, you can run the following command to specify the version to be downloaded: </p><p><b>pip3 install tornado==5.1.0 -i  <i>Installation source of the specified library</i>  --trusted-host <i>Host name of the installation source</i></b></p>
-</td>
-</tr>
-    </tbody>
-    </table>
-
 
