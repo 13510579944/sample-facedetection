@@ -38,19 +38,19 @@ tools_version=$1
 
 app_path="${script_path}/.."
 
-function download_prepare_model_script()
-{
-    echo "download download_model.sh..."
-    rm -rf ${script_path}/download_model.sh
+#function download_prepare_model_script()
+#{
+    #echo "download download_model.sh..."
+    #rm -rf ${script_path}/download_model.sh
     
-    wget -O ${script_path}/download_model.sh "https://raw.githubusercontent.com/Ascend/models/master/download_model.sh" --no-check-certificate --quiet
-    if [ $? -ne 0 ];then
-        echo "ERROR: download failed, please check https://raw.githubusercontent.com/Ascend/models/master/download_modell.sh connetction."
-        rm -rf ${script_path}/download_model.sh
-        return 1
-    fi
-    return 0
-}
+    #wget -O ${script_path}/download_model.sh "https://raw.githubusercontent.com/Ascend/models/master/download_model.sh" --no-check-certificate --quiet
+    #if [ $? -ne 0 ];then
+        #echo "ERROR: download failed, please check https://raw.githubusercontent.com/Ascend/models/master/download_modell.sh connetction."
+        #rm -rf ${script_path}/download_model.sh
+        #return 1
+    #fi
+    #return 0
+#}
 
 function prepare()
 {
